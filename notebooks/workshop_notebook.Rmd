@@ -7,7 +7,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-Ok before we start please run the code below to download a few packages for the course :)
+Ok, before we start, please run the code below to download a few packages for the course :)
+
 ```
 install.packages("tidyverse")
 ```
@@ -21,13 +22,13 @@ R is a programming language and free software environment for statistical comput
 In summary:
 
 * R is free
-* R has a great help system
 * R is multi-platform (Windows, GNU-Linux, MacOSX)
+* R has a great help system
 * R has a lot of pre-installed statistical functions
 * The user can create and apply their own functions in R
 * R makes data analyses **reproducible**
-* Great online community! (i.e. [Stack Overflow](https://stackoverflow.com/questions/tagged/r), [#rstats](https://twitter.com/search?q=%23rstats&src=typd))
-* Very popular among biologists!
+* Great online community (i.e. [Stack Overflow](https://stackoverflow.com/questions/tagged/r), [#rstats](https://twitter.com/search?q=%23rstats&src=typd))
+* Very popular among biologists
 
 Here are some great open source resources for your references:
 
@@ -35,13 +36,14 @@ Here are some great open source resources for your references:
 - [Advanced R](http://adv-r.had.co.nz/)
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
 - [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/)
+- [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
 # General tips for learning R programming
 ***
 
-* Google is your friend! All levels of programmers search the web for solutions to coding problems. As you continue to develope your R skills you will also develope an intuition to search for solutions faster.
-* Organize your data, images, scripts, and notebooks into separate directories. You have a lot of worry about... the more organized you are better.
-* Comment your code! Try to consistenly write notes within your code to explain what your are doing and results. If you dont, you WILL forget when you come back to it in the future. "Damn you past self!"
+* **Google is your friend!** All levels of programmers search the web for solutions to coding problems. As you continue to develope your R skills you will also develope an intuition to search for solutions faster.
+* **Organize** your data, images, scripts, and notebooks into separate directories. You have a lot of worry about... the more organized you are better.
+* **Comment your code!** Try to consistenly write notes within your code to explain what you are doing and your results. If you don't, you WILL forget when you come back to it in the future. "Damn you, past self!"
 * Stay positive and have fun :)
 
 # Downloading R and RStudio
@@ -68,7 +70,7 @@ R versions can be downloaded from the [Comprehensive R Archive Network website](
 # Introduction to R programming language
 ***
 
-We are getting into the exciting stuff! Open RStudio and open a new R script. We will write and execute our commands in it.
+We are getting into the exciting stuff! Open RStudio and start a new R script. This is like a text file where we will write and execute our commands.
 
 ## Intro
 
@@ -80,7 +82,7 @@ print("Hello") # This command prints an initial greeting :)
 
 ## How to get help
 
- `?` to read the help page of functions or data sets. For example:
+Use `?` to read the help page of functions or data sets. For example:
 
 `?R.version`
 
@@ -153,7 +155,7 @@ my.data.org <- data.frame(x, y, z, row.names = b)
 my.data.org
 ```
 
-**YOUR TURN #1** - Make an R object containing a list with the names of your best friends and print it.
+**YOUR TURN #1** - Make an R object with the names of your best friends and print it.
 
 ## Attributes of the objects and their functions
 
@@ -175,7 +177,7 @@ attributes(my.data.org)
 # etc
 ```
 
-**YOUR TURN #2** - Create a data frame containing some information about these friend: the row names are the names of your friends, the first column is their age, the second column is their hair colour and the third column is... you choose! Explore the attributes, dimensions, dimension names etc. of this data frame.
+**YOUR TURN #2** - Create a data frame containing some information about these friends: the row names are the names of your friends, the first column is their age, the second column is their hair colour and the third column is... you choose! Explore the attributes, dimensions, dimension names, etc. of this data frame.
 
 ## Basic maths and statistics in R
 
@@ -216,7 +218,7 @@ if(min(x)>1 || min(y)<10) {
 
 ## Subsetting strings and arrays
 
-With the function `c()` we can generate **strings** of values. With the coordinates (square brackets, `[` and `]`) we can select specific elements from **strings**. With the operator `$` we can access columns in a **data frame** by the variable name. For *lists* we can use the operators `[ ]`, that will return a list, or `[[ ]]` that will return the elements of the list
+With the function `c()` we can generate **strings** of values. With the coordinates (square brackets, `[` and `]`) we can **select** specific elements from strings. With the operator `$` we can access columns in a **data frame** by the variable name. For *lists* we can use the operators `[ ]`, that will return a list, or `[[ ]]` that will return the elements of the list
 
 You can find some help on subsetting [here](http://www.statmethods.net/management/subset.html) and [here](http://adv-r.had.co.nz/Subsetting.html)
 
@@ -269,6 +271,8 @@ my.data.org$y
 ```
 
 **YOUR TURN #3** - You've decided you're not friends with one of people in the `friends` data frame. You want to remove his/her information from your data frame.
+
+**YOUR TURN #4** - Select the friends from the dataframe that are older than 27.
 
 ### Generate random sequences
 
@@ -370,7 +374,7 @@ write.csv(iris_tail, file = "data/iris_tail.csv", quote = FALSE, row.names = FAL
 write.table(iris_tail, file = "data/iris_tail.tsv", sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 ```
 
-**YOUR TURN #4** - In the directory "data" there is an Excel file containing a microensor profile that quantified different parameters. Transform it to `.csv` format and import it into R.
+**YOUR TURN #5** - In the directory "data" there is an Excel file containing a microensor profile that quantified different parameters. Transform it to `.csv` format and import it into R.
 
 # Installing Packages
 ***
@@ -546,7 +550,7 @@ iris_renamed
 
 This verb allows you to add new columns to your data frame 
 
-Let's that the ratio between Sepal.Length and Petal.Length is important for your study. You can add a column with this ratio by doing this:
+Let's suppose that the ratio between `Sepal.Length` and `Petal.Length` is important for your study. You can add a column with this ratio by doing this:
 ```{r}
 iris %>% mutate(sep_to_ped_ratio = Sepal.Length/Petal.Length)
 ```
@@ -554,7 +558,7 @@ iris %>% mutate(sep_to_ped_ratio = Sepal.Length/Petal.Length)
 
 ### Summarise
 
-This verb allow you to make summary statistics from your data
+This verb allows you to make summary statistics from your data
 
 ```{r}
 # Cacluate the mean Sepal.Length and how many observations there are
@@ -593,7 +597,7 @@ Let's test out our new Tidyverse powers with some practice problems :)
 # RStudio Projects
 ***
 
-The objects created in a R session are shown in the tab "Environment". These objects will not be available if we close the R session unless we save the work space (however you're always asked if you want to save the current work space upon closing R or R Studio).
+The objects created in a R session are shown in the tab "Environment". These objects will not be available if we close the R session unless we save the work space (however by default you're always asked if you want to save the current work space upon closing R or R Studio).
 
 A good alternative to not deal with this issue is to create a R project. 
 
@@ -616,7 +620,7 @@ In this section, let's open the file `workshop_notebook.Rmd` in R Studio and che
 
 The elements of an R Markdown are:
 
-* the header. This is where the title, author, date and output format is specified. Output format can be pdf, html, docx...
+* the header. This is where the title, author, date and output format is specified. Output format can be `.pdf`, `.html`, `.docx`...
 * the main text. It can include sections, bullet points, tables, etc. Sorry to repeat ourselves, but check the [R markdown cheatsheet](https://www.rstudio.com/resources/cheatsheets/) for more information :)
 * code chunks. To insert an R code chunk type `Cntrl`+`Alt`+`I` or go to the `Insert` tab in the script window in R Studio. The chunks work like tiny R scripts and you can also include comments inside using hash tags (#). Apart from R code, you can include chunks for other coding languages.
 
@@ -631,5 +635,5 @@ The contents of this workshop were adapted from ["Curso básico de R"](http://ww
 Name | GitHub handle | email
 ---|---|---
 David Benito | @dbenitom | dbenito@mpi-bremen.de
-[Matthew Schechter](https://orcid.org/0000-0002-8435-3203) | @mschecht | mschecht@mpi-bremen.de
+[Matthew Schechter](https://orcid.org/0000-0002-8435-3203) | @mschecht | mschechter@uchicago.edu
 Chiara Vanni | @ChiaraVanni | cvanni@mpi-bremen.de
