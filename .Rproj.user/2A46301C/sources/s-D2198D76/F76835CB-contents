@@ -3,8 +3,8 @@ title: "R workshop"
 author: "David Benito & Chiara Vanni"
 date: "January 2020"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: console
 ---
